@@ -1,0 +1,8 @@
+<div
+  class="deadline-timer"
+  [class.warning]="secondsLeft <= 10"
+  *ngIf="secondsLeft$ | async as secondsLeft"
+>
+  <span class="label">Seconds left to deadline</span>
+  <span class="value">{{ secondsLeft }}</span>
+</div>
