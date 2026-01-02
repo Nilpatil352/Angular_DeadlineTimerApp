@@ -15,10 +15,11 @@ import { DeadlineService } from '../../services/deadline.service';
 })
 export class DeadlineTimerComponent implements OnInit {
   secondsLeft$!: Observable<number>;
-
+  apiFailed$!: Observable<boolean>;
   constructor(private deadlineService: DeadlineService) {}
 
   ngOnInit(): void {
+    this.apiFailed$ = this.deadlineService.apiFailed$;
     this.secondsLeft$ = this.deadlineService.getInitialSecondsLeft().pipe(
       switchMap(initialSeconds =>
         interval(1000).pipe(

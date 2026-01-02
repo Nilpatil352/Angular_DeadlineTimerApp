@@ -6,3 +6,7 @@
   <span class="label">Seconds left to deadline</span>
   <span class="value">{{ secondsLeft }}</span>
 </div>
+
+<div class="api-warning" *ngIf="apiFailed$ | async">
+  Using fallback data (deadline API is unavailable)
+</div>
